@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.2"
+    defaultConfig {
+        applicationId "sample.css.injectpresentermvptest"
+        minSdkVersion 16
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+final DAGGER_VERSION = '2.6'
+final ESPRESSO_VERSION = '2.2.2'
+final MOCKITO_VERSION = '1.10.19'
+final RUNNER_VERSION = '0.5'
+final RULES_VERSION = '0.5'
+final DEXMAKER_VERSION = '1.2'
+final SUPPORT_VERSION = '24.2.1'
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile "com.android.support:appcompat-v7:${SUPPORT_VERSION}"
+
+    // Dagger
+    compile "com.google.dagger:dagger:${DAGGER_VERSION}"
+    apt "com.google.dagger:dagger-compiler:${DAGGER_VERSION}"
+    provided 'javax.annotation:jsr250-api:1.0'
+
+    // Espresso
+    androidTestCompile "com.android.support.test.espresso:espresso-core:${ESPRESSO_VERSION}"
+    androidTestCompile "com.android.support.test.espresso:espresso-intents:${ESPRESSO_VERSION}"
+    //Runner
+    androidTestCompile "com.android.support.test:runner:${RUNNER_VERSION}"
+    androidTestCompile "com.android.support.test:rules:${RULES_VERSION}"
+    // Runner needs support annotations.
+    androidTestCompile "com.android.support:support-annotations:${SUPPORT_VERSION}"
+    // Mockito
+    androidTestCompile "org.mockito:mockito-core:${MOCKITO_VERSION}"
+    // DexMaker
+    androidTestCompile "com.google.dexmaker:dexmaker:${DEXMAKER_VERSION}"
+    androidTestCompile "com.google.dexmaker:dexmaker-mockito:${DEXMAKER_VERSION}"
+    // Dagger for tests
+    androidTestApt "com.google.dagger:dagger-compiler:${DAGGER_VERSION}"
+
+}
