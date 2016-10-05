@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import javax.inject.Inject;
 
+import sample.css.injectpresentermvptest.MyApplication;
 import sample.css.injectpresentermvptest.R;
 
 public class MainActivity extends AppCompatActivity implements MainMVP.View {
@@ -20,6 +21,8 @@ public class MainActivity extends AppCompatActivity implements MainMVP.View {
 
     MainComponent daggerMainComponent;
 
+    private DataRepositoryComponent dataRepositoryComponent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,11 +32,11 @@ public class MainActivity extends AppCompatActivity implements MainMVP.View {
         tvShowData = (TextView) findViewById(R.id.tv_show_data);
 
         // create Presenter
-        daggerMainComponent = DaggerMainComponent.builder()
+        DaggerMainComponent.builder()
+                .dataRepositoryComponent(((MyApplication) getApplication()).getDataRepositoryComponent())
                 .mainPresenterModule(new MainPresenterModule(this))
-                .build();
-
-        daggerMainComponent.inject(this);
+                .build()
+                .inject(this);
 
     }
 

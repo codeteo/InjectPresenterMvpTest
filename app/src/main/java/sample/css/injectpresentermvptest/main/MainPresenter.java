@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 
 import javax.inject.Inject;
+
 import sample.css.injectpresentermvptest.DataSource;
 
 import static android.content.ContentValues.TAG;
@@ -17,9 +18,9 @@ public class MainPresenter implements MainMVP.Presenter {
     DataSource dataSource;
 
     @Inject
-    public MainPresenter(@NonNull MainMVP.View mainView) {
+    public MainPresenter(@NonNull MainMVP.View mainView, DataSource dataSource) {
         this.mainView = mainView;
-        dataSource = new DataSource();
+        this.dataSource = dataSource;
     }
 
     @Override

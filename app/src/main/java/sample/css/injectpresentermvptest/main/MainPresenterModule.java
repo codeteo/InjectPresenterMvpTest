@@ -10,11 +10,9 @@ import dagger.Provides;
 public class MainPresenterModule {
 
     private final MainMVP.View mView;
-//    private final DataSource dataSource;
 
     public MainPresenterModule(MainMVP.View view) {
         this.mView = view;
-//        this.dataSource = dataSource;
     }
 
     @Provides
@@ -22,10 +20,4 @@ public class MainPresenterModule {
         return mView;
     }
 
-    /*
-    @Provides
-    DataSource provideDataSource() {
-        return dataSource;
-    }
-    */
 }

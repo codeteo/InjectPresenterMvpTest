@@ -1,11 +1,15 @@
 package sample.css.injectpresentermvptest.main;
 
 import dagger.Component;
+import sample.css.injectpresentermvptest.utils.MainActivityScoped;
 
 /**
- * Created by css on 10/4/16.
+ * Adds Scope of {@link MainActivityScoped} to depend to a scoped Component.
+ * The component {@link DataRepositoryComponent} is scoped with {@code @Singleton}
+ *
  */
-@Component(modules = MainPresenterModule.class)
+@MainActivityScoped
+@Component(dependencies = DataRepositoryComponent.class, modules = MainPresenterModule.class)
 public interface MainComponent {
 
     void inject(MainActivity mainActivity);
