@@ -5,10 +5,10 @@ package sample.css.injectpresentermvptest;
  */
 public class DataSource {
 
-    public static final String RELEASE_STRING = "Release String";
+    public static final String MOCK_STRING = "Mock String";
 
     public String getReleaseString() {
-        return RELEASE_STRING;
+        return MOCK_STRING;
     }
 
 }
