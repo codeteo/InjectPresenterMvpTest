@@ -15,8 +15,7 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        dataRepositoryComponent = DaggerDataRepositoryComponent
-                .builder()
+        dataRepositoryComponent = DaggerDataRepositoryComponent.builder()
                 .applicationModule(new ApplicationModule(getApplicationContext()))
                 .dataRepositoryModule(new DataRepositoryModule())
                 .build();
