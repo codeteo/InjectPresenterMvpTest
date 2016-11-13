@@ -7,6 +7,9 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 
+/**
+ * Dagger module class for production data
+ */
 @Module
 public class DataRepositoryModule {
 

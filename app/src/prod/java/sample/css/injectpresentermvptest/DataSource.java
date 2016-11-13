@@ -1,7 +1,7 @@
 package sample.css.injectpresentermvptest;
 
 /**
- * Created by css on 10/4/16.
+ * DataSource in Prod sourceSet to return production data.
  */
 public class DataSource {
 
